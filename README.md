@@ -25,6 +25,11 @@ Events
 ```
 L1-dcache-load-misses,L1-icache-load-misses,l2_rqsts.miss,dTLB-load-misses,iTLB-load-misses,br_misp_retired.all_branches_pebs
 ```
+get data for programs q1
+```
+perf stat -e fp_arith_inst_retired.scalar_single,mem_inst_retired.all_loads,mem_inst_retired.all_stores
+```
+
 Get data for events
 ```
 perf stat -e L1-dcache-load-misses,L1-icache-load-misses,l2_rqsts.miss,dTLB-load-misses,iTLB-load-misses,br_misp_retired.all_branches_pebs -I 10 -x, -o data.csv ./bfs -u 10 -n 1
@@ -68,3 +73,35 @@ after installation, you need to set up the environment variables to use the comp
 ```
 source /opt/intel/oneapi/setvars.sh
 ```
+DATA
+Cache Topology
+********************************************************************************
+Level:			1
+Size:			32 kB
+Type:			Data cache
+Associativity:		8
+Number of sets:		64
+Cache line size:	64
+Cache type:		Non Inclusive
+Shared by threads:	2
+Cache groups:		( 0 2 ) ( 1 3 )
+--------------------------------------------------------------------------------
+Level:			2
+Size:			256 kB
+Type:			Unified cache
+Associativity:		4
+Number of sets:		1024
+Cache line size:	64
+Cache type:		Non Inclusive
+Shared by threads:	2
+Cache groups:		( 0 2 ) ( 1 3 )
+--------------------------------------------------------------------------------
+Level:			3
+Size:			3 MB
+Type:			Unified cache
+Associativity:		12
+Number of sets:		4096
+Cache line size:	64
+Cache type:		Inclusive
+Shared by threads:	4
+Cache groups:		( 0 2 1 3 )

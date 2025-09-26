@@ -39,7 +39,7 @@ int main() {
     		mat2[i][j]=ROWS*i+j*0.1;
     	 	
     
-    int i,j,k,N=400;
+    int i,j,k,N=4096;
     
     for(i=0; i<N; i++)
 	for(j=0; j<N; j++){

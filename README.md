@@ -55,7 +55,7 @@ likwid-bench -t copy -w S0:10KB:1
 ```
 sudo sysctl kernel.perf_event_paranoid=-1
 ```
-##SETTING UP RODINIA
+# SETTING UP RODINIA
 
 ```
 git clone https://github.com/yuhc/gpu-rodinia.git
@@ -71,7 +71,7 @@ Output is saved to bfs_CPI.csv
 
 
 
-##SETTING UP GAPBS
+# SETTING UP GAPBS
 ```
 git clone https://github.com/sbeamer/gapbs.git
 ```

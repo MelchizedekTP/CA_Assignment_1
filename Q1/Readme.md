@@ -76,4 +76,5 @@ plot \
     log10(4519.81) title "PEAK-MFLOPS"
 
 ````
-
+# DESMOS PLOT 
+https://www.desmos.com/calculator/4vyvqpzaxl

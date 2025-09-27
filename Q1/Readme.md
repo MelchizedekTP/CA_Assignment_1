@@ -13,8 +13,9 @@ taskset -a --cpu-list 0 perf stat -e mem_load_retired.l3_miss,fp_arith_inst_reti
 |-------|------|
 |mem_load_retired.l3_miss|2,356,412,522 |
 |fp_arith_inst_retired.scalar_single|137,440,118,132|
-|User time|1061.926462000|
-|system time|1.950318000|
+|seconds time elapsed|1065.093355483|
+|seconds user|1061.926462000|
+|seconds sys|1.950318000|
 
 graph
 https://www.desmos.com/calculator/4vyvqpzaxl
@@ -22,9 +23,11 @@ https://www.desmos.com/calculator/4vyvqpzaxl
 ## part 2
 | Event | Count|
 |-------|------|
-|mem_load_retired.l3_miss| |
-|fp_arith_inst_retired.scalar_single||
-|User time||
+|mem_load_retired.l3_miss|105,131,069 |
+|fp_arith_inst_retired.scalar_single|137,439,424,834|
+|seconds time elapsed|410.306275995|
+|  seconds user| 409.474765000 |
+|  seconds sys|  0.561660000|
 
 ## part 3
 | Event | Count|

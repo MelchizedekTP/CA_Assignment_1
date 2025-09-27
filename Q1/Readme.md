@@ -42,7 +42,7 @@ https://www.desmos.com/calculator/4vyvqpzaxl
 
 
 
-#PLOTTING USING GNU
+# PLOTTING USING GNU
 
 ````
 set xlabel "x"

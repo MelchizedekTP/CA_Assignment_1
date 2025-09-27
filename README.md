@@ -55,6 +55,35 @@ likwid-bench -t copy -w S0:10KB:1
 ```
 sudo sysctl kernel.perf_event_paranoid=-1
 ```
+##SETTING UP RODINIA
+
+```
+git clone https://github.com/yuhc/gpu-rodinia.git
+```
+Download the dataset from the following link https://www.dropbox.com/s/cc6cozpboht3mtu/rodinia-3.1-data.tar.gz
+And extract it.
+navigate to the rodinia-data/bfs and then copy graph1MW_6.txt
+copy it to the gpu-rodinia\openmp\bfs
+```
+sudo likwid-perfctr -g CLOCK -C 0 -t 100ms -o bfs_CPI.csv ./bfs 1 graph1MW_6.txt
+```
+Output is saved to bfs_CPI.csv 
+
+
+
+##SETTING UP GAPBS
+```
+git clone https://github.com/sbeamer/gapbs.git
+```
+execute the make file inside the gapbs.
+Then run the foloowing 
+```
+sudo likwid-perfctr -g CLOCK -C 0 -t 100ms -o bfs_TABLE.csv ./bfs -g 20 -n 10
+```
+Output is saved to bfs_TABLE.csv 
+
+
+
 
 ## Installing icc
 

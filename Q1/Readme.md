@@ -11,9 +11,10 @@ taskset -a --cpu-list 0 perf stat -e mem_load_retired.l3_miss,fp_arith_inst_reti
 ```
 | Event | Count|
 |-------|------|
-|mem_load_retired.l3_miss| |
-|fp_arith_inst_retired.scalar_single||
-|User time||
+|mem_load_retired.l3_miss|2,356,412,522 |
+|fp_arith_inst_retired.scalar_single|137,440,118,132|
+|User time|1061.926462000|
+|system time|1.950318000|
 
 graph
 https://www.desmos.com/calculator/4vyvqpzaxl

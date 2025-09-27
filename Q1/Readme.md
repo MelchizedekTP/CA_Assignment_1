@@ -36,12 +36,14 @@ https://www.desmos.com/calculator/4vyvqpzaxl
 |fp_arith_inst_retired.scalar_single||
 |User time||
 
-## part 3
+## part 4
 | Event | Count|
 |-------|------|
-|mem_load_retired.l3_miss| |
-|fp_arith_inst_retired.scalar_single||
-|User time||
+|mem_load_retired.l3_miss| 35,783,974|
+|fp_arith_inst_retired.scalar_single| 137,439,499,837|
+|seconds time elapsed|491.064807996|
+|seconds user|490.673976000|
+|seconds sy|0.151945000|
 
 
 

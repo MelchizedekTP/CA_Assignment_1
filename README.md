@@ -39,6 +39,7 @@ IPC
 perf stat -e L1-dcache-load-misses,L1-icache-load-misses,l2_rqsts.miss,dTLB-load-misses,iTLB-load-misses,br_misp_retired.all_branches_pebs,cycles,instructions -I 10 -x, -o data.csv ./bfs -u 10 -n 1
 ```
 
+
 ## Likwid commands used
 To get cache sizes
 ```

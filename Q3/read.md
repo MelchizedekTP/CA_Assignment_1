@@ -29,5 +29,25 @@ perf stat -e cycles,instructions -I 10 -x, -o rodinia_data.csv ./bfs graph335544
 This would store the cycles, instructions and IPC values of every 10 ms interval in rodinia_data.csv file.
 
 
+## SETTING UP GAPBS
 
+Clone the GAPBS benchmark repository
+````
+git clone https://github.com/sbeamer/gapbs.git
+````
 
+then build the project
+````
+make
+````
+
+## COLLECTING THE IPC DATA
+
+Execute the following command to run the bfs code as follows.
+./bfs -u <no. of nodes> -n <no. of iterations>
+
+````
+perf stat -e cycles,instructions -I 10 -x, -o gapbs_data.csv ./bfs -u 25 -n 1
+````
+
+This would store the cycles, instructions and IPC values of every 10 ms interval in gapbs_data.csv file.

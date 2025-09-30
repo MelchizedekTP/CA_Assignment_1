@@ -29,6 +29,9 @@ perf stat -e cycles,instructions -I 10 -x, -o rodinia_data.csv ./bfs graph335544
 This would store the cycles, instructions and IPC values of every 10 ms interval in rodinia_data.csv file.
 
 
+
+
+
 ## SETTING UP GAPBS
 
 Clone the GAPBS benchmark repository

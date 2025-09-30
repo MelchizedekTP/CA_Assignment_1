@@ -43,13 +43,13 @@ int main() {
     int b=4;
     
     
-    for(k=0;k<N;k+=b)
+for(k=0;k<N;k+=b)
 	for(i=0; i<N; i+=b)
  		for(j=0; j<N; j+=b)
- 			for(ii=i;ii<i+b;ii++)
- 				for(jj=j;jj<j+b;jj++)
- 					for(kk=k;kk<k+b;kk++)
- 						mat3[ii][jj]= mat3[ii][jj]+ mat1[ii][kk]*mat2[kk][jj];
+ 			for(kk=k;kk<k+b;kk++)
+				for(ii=i;ii<i+b;ii++)
+ 					for(jj=j;jj<j+b;jj++)
+ 					      mat3[ii][jj]= mat3[ii][jj]+ mat1[ii][kk]*mat2[kk][jj];
  				
    return 0;
 }

@@ -141,3 +141,36 @@ Cache line size:	64
 Cache type:		Inclusive
 Shared by threads:	4
 Cache groups:		( 0 2 1 3 )
+
+
+graph
+https://www.desmos.com/calculator/4vyvqpzaxl
+
+# PLOTTING USING GNU
+
+````
+set xlabel "x"
+set ylabel "y"
+# set key left top
+
+# Control axis ranges and step size
+set xtics 0.5
+set ytics 0.5
+
+# (Optional) force x and y ranges
+set xrange [-5:5]
+set yrange [0:4]
+
+# Increase sampling density for smoother curves
+# set samples 1000
+
+plot \
+    log10(34558.72) + x title "L1 CACHE", \
+    log10(26874.7) + x title "L2 CACHE", \
+    log10(23663.28) + x title "L3 CACHE", \
+    log10(14092.25) + x title "DRAM", \
+    log10(4519.81) title "PEAK-MFLOPS"
+
+````
+# DESMOS PLOT 
+https://www.desmos.com/calculator/4vyvqpzaxl

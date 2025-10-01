@@ -1,5 +1,9 @@
 # CPI STACK CALCULATION
 
+### NOTE
+
+The data collecetd after running the gapbs and rodinia benchmark program have been added **perf_training_gaps.csv** and **perf_training_rodinia.csv**.
+
 
 ## RODINIA BENCHMARK
 

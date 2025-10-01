@@ -9,7 +9,9 @@ update grup file
 ```
 GRUB_CMDLINE_LINUX="isolcpus=0"
 ```
-update kernel
+This stops the kernel from assigning processes to core : 0
+
+Next update kernel
 ```
 sudo update-grub
 ```

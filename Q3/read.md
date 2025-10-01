@@ -1,5 +1,12 @@
 # IPC CHARACTERSTICS
 
+### NOTE
+
+The data collecetd using perf for both the benchmarks have been add for reference.
+**Q2aGAPBFS.csv** and **Q2aRODINIA.csv**.
+
+
+
 ## SETTING UP RODINIA
 Clone the rodinia benchmark repository
 

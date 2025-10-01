@@ -56,6 +56,7 @@ To get DRAM bandwidth
 ```
 likwid-bench -t copy -w S0:100MB:1
 ```
+Perf
 
 To get performance counters perf was used. Perf comes as default in linux-tools. If your kernel doesnt have latest linux-tools, you can download the latest available version from https://www.kernel.org/. 
 
@@ -96,6 +97,7 @@ perf command to get performance counters
 ```
 taskset -a --cpu-list 0 perf stat -e mem_load_retired.l3_miss,fp_arith_inst_retired.scalar_single ./matmult2.out
 ```
+output:
 | Event | Count|
 |-------|------|
 |mem_load_retired.l3_miss|105,131,069 |
@@ -104,7 +106,7 @@ taskset -a --cpu-list 0 perf stat -e mem_load_retired.l3_miss,fp_arith_inst_reti
 |  seconds user| 409.474765000 |
 |  seconds sys|  0.561660000|
 
-### 3. Simple-i,j,k loop order
+### 3. Tiled-i,j,k loop order
 Compiling C program
 
 ```
@@ -112,8 +114,9 @@ gcc matmul3.c -o matmult3.out
 ```
 perf command to get performance counters
 ```
-taskset -a --cpu-list 0 perf stat -e mem_load_retired.l3_miss,fp_arith_inst_retired.scalar_single ./matmult1.out
+taskset -a --cpu-list 0 perf stat -e mem_load_retired.l3_miss,fp_arith_inst_retired.scalar_single ./matmult3.out
 ```
+output:
 | Event | Count|
 |-------|------|
 |mem_load_retired.l3_miss| 755,909,589|
@@ -122,16 +125,17 @@ taskset -a --cpu-list 0 perf stat -e mem_load_retired.l3_miss,fp_arith_inst_reti
 |seconds user|582.176800000|
 |seconds sys|1.096820000|
 
-### 1. Simple-i,j,k loop order
+### 4. Tiled-k,i,j loop with permuted order
 Compiling C program
 
 ```
-gcc matmul1.c -o matmult1.out
+gcc matmul4.c -o matmult4.out
 ```
 perf command to get performance counters
 ```
-taskset -a --cpu-list 0 perf stat -e mem_load_retired.l3_miss,fp_arith_inst_retired.scalar_single ./matmult1.out
+taskset -a --cpu-list 0 perf stat -e mem_load_retired.l3_miss,fp_arith_inst_retired.scalar_single ./matmult4.out
 ```
+Output:
 | Event | Count|
 |-------|------|
 |mem_load_retired.l3_miss| 35,783,974|
@@ -140,6 +144,29 @@ taskset -a --cpu-list 0 perf stat -e mem_load_retired.l3_miss,fp_arith_inst_reti
 |seconds user|490.673976000|
 |seconds sys|0.151945000|
 
+## B2
+#### GAP Benchmark Suite (GAPS)
+Note: Git should be installed (refer https://github.com/git-guides/install-git to install git)
 
+Clone the repo from git:
+```
+git clone https://github.com/sbeamer/gapbs.git
+```
+goto folder gaps and run make
+```
+cd gaps
+make
+```
+also see readme.md file for more details
 
+### Roofline using TEPS
 
+Run this command to get bytes and edges traversed
+```
+taskset -a --cpu-list 0 perf stat -e mem_load_retired.l3_miss ./bfs -u 25 -n 1
+```
+`taskset -a --cpu-list 0` set all the task on core 0.
+
+`perf stat -e mem_load_retired.l3_miss` returns memory load instructions that missed L3 cache.
+
+`./bfs -u 25 -n 1 ` creates a uniform graph with 2^25 vertices and runs a breadth first search on that graph , when executed gaps returns the number of edges traversed and perf gets the bytes used and time elapsed.

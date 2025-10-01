@@ -19,10 +19,11 @@ sudo update-grub
 ```
 Reboot the system for this to take effect
 
-### Run program on specific core
+### To run program on specific core
 ```
 taskset -a --cpu-list 0 ./program
 ```
+
 ### Construction of roofline model
 To get the specification of the CPU, Likwid was used
 
@@ -35,9 +36,29 @@ To get the specification
 ```
 likwid-topology -c
 ```
-This gives the following details
+To get peak flops
 ```
-
+likwid-bench -t peakflops_sp -w S0:10KB:1
+```
+To get L1 cache bandwidth
+```
+likwid-bench -t copy -w S0:10KB:1
+```
+To get L2 cache bandwidth
+```
+likwid-bench -t copy -w S0:200KB:1
+```
+To get L3 cache bandwidth
+```
+likwid-bench -t copy -w S0:10MB:1
+```
+To get DRAM bandwidth
+```
+likwid-bench -t copy -w S0:100MB:1
+```
+Note: To run perf commands its neccassry to set perf kernel paranoid level to -1. To do that 
+```
+sudo sysctl kernel.perf_event_paranoid=-1
 ```
 
 ## B1

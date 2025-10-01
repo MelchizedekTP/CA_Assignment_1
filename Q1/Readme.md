@@ -1,5 +1,49 @@
-# Q1
-## Part 1
+# P1
+## Common set up for both B1,B2 problems
+### Isolating cpu core
+Note: These commands are specific to Linux distributions
+
+go to directory '/etc/default/grub'
+```
+cd /etc/default/grub
+```
+update grup file in that directory
+```
+GRUB_CMDLINE_LINUX="isolcpus=0"
+```
+This stops the kernel from assigning processes to core : 0
+
+Next update kernel
+```
+sudo update-grub
+```
+Reboot the system for this to take effect
+
+### Run program on specific core
+```
+taskset -a --cpu-list 0 ./program
+```
+### Construction of roofline model
+To get the specification of the CPU, Likwid was used
+
+To install Likwid:
+```
+sudo apt install likwid
+```
+
+To get the specification
+```
+likwid-topology -c
+```
+This gives the following details
+```
+
+```
+
+## B1
+
+### Compiling C program
+
 Simple-i,j,k loop order
 Events :
 ```

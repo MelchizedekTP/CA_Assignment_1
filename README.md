@@ -1,7 +1,7 @@
 # CA Assignment 1
 
 ## Isolate cpu core
-go to:
+go to directory:
 ```
 cd /etc/default/grub
 ```

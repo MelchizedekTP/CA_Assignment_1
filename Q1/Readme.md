@@ -56,6 +56,9 @@ To get DRAM bandwidth
 ```
 likwid-bench -t copy -w S0:100MB:1
 ```
+
+To get performance counters perf was used. Perf comes as default in linux-tools. If your kernel doesnt have latest linux-tools, you can download the latest available version from https://www.kernel.org/. 
+
 Note: To run perf commands its neccassry to set perf kernel paranoid level to -1. To do that 
 ```
 sudo sysctl kernel.perf_event_paranoid=-1
